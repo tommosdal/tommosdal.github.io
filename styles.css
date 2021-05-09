@@ -1,0 +1,97 @@
+/* Center text animation from:https://codepen.io/comehope/pen/GdrrZq (modified to be flat)
+Breathing background from: https://www.sliderrevolution.com/resources/css-animated-background/*/
+html,
+body {
+	height: 100%;
+	width:  100%;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+	display: flex;
+	justify-content: center;
+}
+
+.box {
+	display: flex;
+}
+
+.box .inner {
+	width: 600px;
+	height: 200px;
+	line-height: 200px;
+	font-size: 3em;
+	font-family: sans-serif;
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.box .inner:first-child {
+	background-color: black;
+	color: antiquewhite;
+	transform-origin: left;
+	transform: perspective(100px);
+}
+
+.box .inner:last-child {
+	background-color: black;
+	color: antiquewhite;
+	transform-origin: right;
+	transform: perspective(100px);
+}
+
+.box .inner span {
+	position: absolute;
+	animation: marquee 5s linear infinite;
+}
+
+.box .inner:first-child span {
+	animation-delay: 2.5s;
+	left: -100%;
+}
+
+@keyframes marquee {
+	from {
+		left: 100%;
+	}
+
+	to {
+		left: -100%;
+	}
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+
+.left {
+	text-align: left;
+    height: 40%;
+}
+
+.center {
+	text-align: center;
+    height: 40%;
+}
+
+.right {
+	text-align: right;
+    height: 40%;
+}
+
+/*Via https://stackoverflow.com/questions/18153234/center-a-column-using-twitter-bootstrap-3#:~:text=0.1%20Bootstrap%20has%20a%20built,work%20with%20the%20grid%20system.&text=For%20centering%20elements%2C%20there%20is,text%20(and%20inline%20elements). */
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.senor {
+	visibility:hidden;
+}
